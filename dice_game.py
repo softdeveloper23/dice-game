@@ -26,8 +26,8 @@ player_scores = [0 for _ in range(players)]
 
 while max(player_scores) < max_score:
     for player_index in range(players):
-        print("It is player {}'s turn.".format(player_index + 1))
-        print("Your current total score is {}.".format(player_scores[player_index]))
+        print("\nIt is player {}'s turn.".format(player_index + 1))
+        print("Your current total score is {}.\n".format(player_scores[player_index]))
         current_score = 0
 
         while True:
@@ -48,6 +48,7 @@ while max(player_scores) < max_score:
         player_scores[player_index] += current_score
         print("Your total score is {}.".format(player_scores[player_index]))
 
-    max_score = max(player_scores)
-    winning_player = player_scores.index(max_score)
-    print("Player {} has won with {} points.".format(winning_player + 1, max_score))
+max_score = max(player_scores)
+# winning_player = player_scores.index(max_score) # Causes a bug if there are two players with the same score
+winning_player = player_scores.index(max(player_scores))
+print("\nPlayer {} has won with {} points.".format(winning_player + 1, max_score))
